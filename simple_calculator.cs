@@ -6,11 +6,11 @@ namespace simple_calculator{
             Console.WriteLine("Enter the first number here:");
             num1 = Convert.ToDouble(Console.ReadLine());
             char question;
-            Console.WriteLine("Do you want to use square root? [Y] or [N]?");
+            Console.WriteLine("Would you like to use the square root? Press [Y] to indicate a yes or [N] to indicate a no.");
             question = Convert.ToChar(Console.ReadLine());
             if (question == 'Y'){
-                double res = Math.Sqrt(num1);
-                Console.WriteLine("Result:Sqrt:"+res);
+                double sqrt_res = Math.Sqrt(num1);
+                Console.WriteLine("Result:Sqrt:"+sqrt_res);
             }
             else if (question == 'N'){
                 Console.WriteLine("Enter the second number here:");
@@ -37,7 +37,7 @@ namespace simple_calculator{
                     else {
                         Console.WriteLine(false );
                     }
-                    }
+                }
                 else if (operator_cal == '*') {
                     double mul = num1*num2;
                     Console.WriteLine("Result:Mul:"+mul);
@@ -91,10 +91,10 @@ namespace simple_calculator{
                     }
                 }
                 else {
-                Console.WriteLine(false);
+                    Console.WriteLine(false);
                 }
+                Console.ReadKey();
             }
-            else if ()
             else {
                 Console.WriteLine(false);
             }
