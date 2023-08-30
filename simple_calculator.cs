@@ -2,58 +2,101 @@ using System;
 namespace simple_calculator{
     class Calculator {
         static void Main(string [] args) {
-            int num1 = 0, num2 = 0;
+            double num1 = 0d, num2 = 0d;
             Console.WriteLine("Enter the first number here:");
-            num1 = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Enter the second number here:");
-            num2 = Convert.ToInt32(Console.ReadLine());
-            char operator_cal = 'd';
-            Console.WriteLine("Enter here the operation with which you want to make a calculation:");
-            string operator_cal_input = Console.ReadLine();
-            operator_cal = Convert.ToChar(operator_cal_input);
-            if (operator_cal == '+') {
-                int add = num1+num2;
-                Console.WriteLine("Result:Add:"+add);
+            num1 = Convert.ToDouble(Console.ReadLine());
+            char question;
+            Console.WriteLine("Do you want to use square root? [Y] or [N]?");
+            question = Convert.ToChar(Console.ReadLine());
+            if (question == 'Y'){
+                double res = Math.Sqrt(num1);
+                Console.WriteLine("Result:Sqrt:"+res);
             }
-            else if (operator_cal == '-') {
-                int first_num_ques_answer = 0;
-                Console.WriteLine("Which number to use first, the first (1) or the second (2)?:");
-                first_num_ques_answer = Convert.ToByte(Console.ReadLine());
-                if (first_num_ques_answer == 1) {
-                    int sub = num1 - num2;
-                    Console.WriteLine("Result:Sub:"+sub);
+            else if (question == 'N'){
+                Console.WriteLine("Enter the second number here:");
+                num2 = Convert.ToDouble(Console.ReadLine());
+                char operator_cal;
+                Console.WriteLine("Enter here the operation with which you want to make a calculation:");
+                operator_cal = Convert.ToChar(Console.ReadLine());
+                if (operator_cal == '+') {
+                    double add = num1+num2;
+                    Console.WriteLine("Result:Add:"+add);
                 }
-                else if (first_num_ques_answer == 2) {
-                    int sub = num2 - num1;
-                    Console.WriteLine("Result:Sub:"+sub);
+                else if (operator_cal == '-') {
+                    int first_num_ques_answer;
+                    Console.WriteLine("Which number to use first, the first (1) or the second (2)?:");
+                    first_num_ques_answer = Convert.ToByte(Console.ReadLine());
+                    if (first_num_ques_answer == 1) {
+                        double sub = num1 - num2;
+                        Console.WriteLine("Result:Sub:"+sub);
+                    }
+                    else if (first_num_ques_answer == 2) {
+                        double sub = num2 - num1;
+                        Console.WriteLine("Result:Sub:"+sub);
+                    }
+                    else {
+                        Console.WriteLine(false );
+                    }
+                    }
+                else if (operator_cal == '*') {
+                    double mul = num1*num2;
+                    Console.WriteLine("Result:Mul:"+mul);
+                }
+                else if (operator_cal == '/') {
+                    int first_num_ques_answer;
+                    Console.WriteLine("Which number to use first, the first (1) or the second (2)?:");
+                    first_num_ques_answer = Convert.ToByte(Console.ReadLine());
+                    if (first_num_ques_answer == 1) {
+                        double div = num1/num2;
+                        Console.WriteLine("Result:Div:"+div);
+                    }
+                    else if (first_num_ques_answer == 2) {
+                        double div = num2/num1;
+                        Console.WriteLine("Result:Div:"+div);
+                    }
+                    else {
+                        Console.WriteLine(false);
+                    }
+                }
+                else if (operator_cal == '^'){
+                    int first_num_ques_answer;
+                    Console.WriteLine("Which number to use first, the first (1) or the second (2)?:");
+                    first_num_ques_answer = Convert.ToByte(Console.ReadLine());
+                    if (first_num_ques_answer == 1) {
+                        double result = Math.Pow(num1,num2);
+                        Console.WriteLine("Result:Pow:"+result);
+                    }
+                    else if (first_num_ques_answer == 2) {
+                        double result = Math.Pow(num2,num1);
+                        Console.WriteLine("Result:Pow:"+result);
+                    }
+                    else {
+                        Console.WriteLine(false);
+                    }
+                }
+                else if (operator_cal == '%') {
+                    int first_num_ques_answer;
+                    Console.WriteLine("Which number to use first, the first (1) or the second (2)?:");
+                    first_num_ques_answer = Convert.ToByte(Console.ReadLine());
+                    if (first_num_ques_answer == 1){
+                        double result = num1%num2;
+                        Console.WriteLine("Result:Mod:"+result);
+                    }
+                    else if (first_num_ques_answer == 2){
+                        double result = num2%num1;
+                        Console.WriteLine("Result:Mod:"+result);
+                    }
+                    else {
+                        Console.WriteLine(false);
+                    }
                 }
                 else {
-                    Console.WriteLine("err");
+                Console.WriteLine(false);
                 }
             }
-            else if (operator_cal == '*') {
-                int mul = num1*num2;
-                Console.WriteLine("Result:Mul:"+mul);
-            }
-            else if (operator_cal == '/') {
-                int first_num_ques_answer = 0;
-                first_num_ques_answer = Convert.ToInt16(Console.ReadLine());
-                double num1d = Convert.ToDouble(num1);
-                double num2d = Convert.ToDouble(num2);
-                if (first_num_ques_answer == 1) {
-                    double div = num1d/num2d;
-                    Console.WriteLine("Result:Div:"+div);
-                }
-                else if (first_num_ques_answer == 2) {
-                    double div = num2d/num1d;
-                    Console.WriteLine("Result:Div:"+div);
-                }
-                else {
-                    Console.WriteLine("err");
-                }
-            }
+            else if ()
             else {
-                Console.WriteLine("err...");
+                Console.WriteLine(false);
             }
             Console.ReadKey();
         }
